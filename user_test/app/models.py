@@ -66,7 +66,7 @@ class Customer(models.Model):
     state = models.CharField(choices=STATES_CHOICES, max_length=2)
     
     def __str__(self):
-        return self.id
+        return str(self.id)
 
 
 # Product Model
@@ -80,7 +80,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='ProductImg')
     
     def __str__(self):
-        return self.id
+        return str(self.id)
     
 # Cart Model
 class Cart(models.Model):
@@ -89,7 +89,7 @@ class Cart(models.Model):
     quantity = models.PositiveIntegerField(default=1)
     
     def __str__(self):
-        return self.id
+        return str(self.id)
     
 # Orders Model
 class Orders(models.Model):
@@ -101,4 +101,4 @@ class Orders(models.Model):
     status = models.CharField(choices=STATUS_CHOICES,max_length=50,default='pending')
     
     def __str__(self):
-        return self.id
+        return str(self.id)
