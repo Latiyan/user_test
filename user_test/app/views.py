@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Customer, Product, Cart, Orders
 
 def home(request):
     return render(request, 'app/home.html')
