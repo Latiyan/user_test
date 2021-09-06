@@ -5,14 +5,15 @@ from .models import Customer, Product, Cart, Orders
 # def home(request):
 #     return render(request, 'app/home.html')
 
-class ProductView(View):
+class HomeView(View):
     def get(self, request):
         constants = {
             'topwears': Product.objects.filter(category='TW'),
             'bottomwears': Product.objects.filter(category='BW'),
             'mobiles': Product.objects.filter(category='M'),
+            'laptops': Product.objects.filter(category='L'),
         }
-        
+
         return render(request, 'app/home.html', constants)
 
 class PeoductDetailView(View):
