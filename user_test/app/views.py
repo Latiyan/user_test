@@ -45,6 +45,10 @@ def change_password(request):
 def mobile(request, data=None):
     if data == None:
         mobiles = Product.objects.filter(category='M')
+    elif data == 'above':
+        mobiles = Product.objects.filter(category='M').filter(sale_price__gt=1000) # Here __gt means greater than
+    elif data == 'below':
+        mobiles = Product.objects.filter(category='M').filter(sale_price__lt=1000) # Here __lt means less than
     else:
         mobiles = Product.objects.filter(category='M').filter(brand=data)
 
