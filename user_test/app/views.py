@@ -15,8 +15,13 @@ class ProductView(View):
         
         return render(request, 'app/home.html', constants)
 
-def product_detail(request):
-    return render(request, 'app/productdetail.html')
+class PeoductDetailView(View):
+    def get(self,request, pk):
+        constants = {
+            'product': Product.objects.get(pk=pk)
+        }
+
+        return render(request, 'app/productdetail.html', constants)
 
 def add_to_cart(request):
     return render(request, 'app/addtocart.html')
